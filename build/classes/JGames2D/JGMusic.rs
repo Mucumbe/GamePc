@@ -1,0 +1,3 @@
+JGames2D.AVAudioPlayerDelegate
+JGames2D.JGMusic$Listener
+JGames2D.JGMusic
