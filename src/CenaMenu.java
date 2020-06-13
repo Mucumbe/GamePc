@@ -58,15 +58,7 @@ public class CenaMenu extends JGLevel {
                 botoes[indece].setCurrentAnimation(0);
             }
         }
-        /*
-        if (gameManager.inputManager.keyTyped(KeyEvent.VK_SPACE)) {
-            if (teste.getCurrentAnimationIndex() == 0) {
-                teste.setCurrentAnimation(1);
-            } else {
-                teste.setCurrentAnimation(0);
-            }
-        }*/
-
+        
         if (gameManager.inputManager.keyPressed(KeyEvent.VK_ESCAPE)) {
             gameManager.finish();
         }

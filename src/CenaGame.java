@@ -71,21 +71,19 @@ public class CenaGame extends JGLevel {
     public void controlaJogador(){
     
         //deslocar aviai por x
-        if(gameManager.inputManager.keyPressed(KeyEvent.VK_LEFT)){
+        if(gameManager.inputManager.keyPressed(KeyEvent.VK_LEFT))
          aviao.position.setX(aviao.position.getX()-10);
-        }
-        if(gameManager.inputManager.keyPressed(KeyEvent.VK_RIGHT)){
+        
+        if(gameManager.inputManager.keyPressed(KeyEvent.VK_RIGHT))
             aviao.position.setX(aviao.position.getX()+10);
-        }
         
         //Movimentar o aviao por y
-         if(gameManager.inputManager.keyPressed(KeyEvent.VK_UP)){
+         if(gameManager.inputManager.keyPressed(KeyEvent.VK_UP))
             aviao.position.setY(aviao.position.getY()-10);
-        }
-          if(gameManager.inputManager.keyPressed(KeyEvent.VK_DOWN)){
+        
+          if(gameManager.inputManager.keyPressed(KeyEvent.VK_DOWN))
             aviao.position.setY(aviao.position.getY()+10);
-        }
-          
+        
           //verificar se o sprite de aviao ultrapaou os limites nas laterais
           if(aviao.position.getX()<aviao.frameWidth/2)
               aviao.position.setX(aviao.frameWidth/2);
