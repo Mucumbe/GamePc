@@ -183,7 +183,7 @@ public class JGWindowManager extends JFrame
 		//Solicita o foco para a janela
 		requestFocus();
 		
-		/*Trata o botão fechar no caso de modo janela*/
+		/*Trata o botï¿½o fechar no caso de modo janela*/
 		addWindowListener(new WindowAdapter() 
 		{
 			public void windowClosing(WindowEvent e)
@@ -202,7 +202,11 @@ public class JGWindowManager extends JFrame
 	************************************************************/
 	public void showWindow()
 	{
-		//Verifica o modo de vídeo
+		DisplayMode displayMode = new DisplayMode(width,height,colorsByPixell,DisplayMode.REFRESH_RATE_UNKNOWN);
+		GraphicsEnvironment environment = GraphicsEnvironment.getLocalGraphicsEnvironment();
+		graphDevice = environment.getDefaultScreenDevice();
+
+		//Verifica o modo de vï¿½deo
 		if (fullScreen)
 		{
 			//Modo tela cheia
@@ -212,9 +216,6 @@ public class JGWindowManager extends JFrame
 			setLocation(0,0);
 			
 			//Configura o modo FullScreen
-			DisplayMode displayMode = new DisplayMode(width,height,colorsByPixell,DisplayMode.REFRESH_RATE_UNKNOWN);
-			GraphicsEnvironment environment = GraphicsEnvironment.getLocalGraphicsEnvironment();
-			graphDevice = environment.getDefaultScreenDevice();
 			setLocation(graphDevice.getDisplayMode().getWidth() / 2, graphDevice.getDisplayMode().getHeight() / 2);
 			graphDevice.setFullScreenWindow(this);
 			graphDevice.setDisplayMode(displayMode);
@@ -223,7 +224,7 @@ public class JGWindowManager extends JFrame
 		{
 			//Modo Janela
 			setTitle(windowTitle);
-			setLocation(xPos,yPos);
+			setLocation(graphDevice.getDisplayMode().getWidth() / 2 - this.width/2,graphDevice.getDisplayMode().getHeight() / 2 - height/2);
 			setSize(width,height);
 			setVisible(true);
 			setResizable(false);
@@ -232,7 +233,7 @@ public class JGWindowManager extends JFrame
 	
 	/***********************************************************
 	*Name: paint()
-	*Description: método da classe JFrame que repinta a janela
+	*Description: mï¿½todo da classe JFrame que repinta a janela
 	*Parametros: Graphics2D
 	*
 	*

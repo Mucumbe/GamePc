@@ -18,7 +18,6 @@ public class Principal {
         motor.windowManager.setResolution(800, 600, 32);
         motor.windowManager.setfullScreen(false);
 
-        motor.windowManager.setWindowPosition(800 - 400, 450 - 300);
         ///regista uma Cena ao motor grafico
         motor.addLevel(new CenaAbertura());//CODIGO 0
         motor.addLevel(new CenaMenu());//CODIGO 1
