@@ -1,5 +1,7 @@
 
 import JGames2D.JGLevel;
+import JGames2D.JGSoundEffect;
+import JGames2D.JGSoundManager;
 import JGames2D.JGSprite;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
@@ -21,7 +23,15 @@ public class CenaMenu extends JGLevel {
     JGSprite ponteiro = null;
     JGSprite[] botoes = new JGSprite[4];
     String[] nomes = {"btn_play", "btn_controls", "btn_credits", "btn_exit"};
+    JGSoundEffect clic=null;
+    JGSoundEffect select=null;
+    
 
+    public  CenaMenu(){
+       clic =JGSoundManager.loadSoundEffect(criarURL("Sounds/toc.wav"));
+       select=JGSoundManager.loadSoundEffect(criarURL("Sounds/click.wav"));
+        
+    }
     private URL criarURL(String caminhoDeImagem) {
 
         return getClass().getResource(caminhoDeImagem);
@@ -36,19 +46,26 @@ public class CenaMenu extends JGLevel {
         //Verifica se o mouse esta sobre um botao
         for (int indece = 0; indece < botoes.length; indece++) {
             if (ponteiro.collide(botoes[indece])) {
+                if(botoes[indece].getCurrentAnimationIndex()!=1){
                 botoes[indece].setCurrentAnimation(1);
+                clic.play();
+                }
                 if (gameManager.inputManager.mouseClicked()) {
                     switch (indece) {
                         case 0:
+                            select.play();
                             gameManager.setCurrentLevel(Principal.GAME);
                             return;
                         case 1:
+                            select.play();
                             gameManager.setCurrentLevel(Principal.CONTROLES);
                             return;
                         case 2:
+                            select.play();
                             gameManager.setCurrentLevel(Principal.CREDITOS);
                             return;
                         case 3:
+                            select.play();
                             gameManager.finish();
                             return;
                     }
